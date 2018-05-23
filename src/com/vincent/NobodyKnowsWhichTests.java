@@ -96,10 +96,10 @@ System.setProperty(key, value);
  */
  /*
 //Login
- 
+ */
  @Test(priority = 1)
    public void loginValidCredentials() throws Exception {
-	 goToAmazonWebsite();
+	 goToAmazonWebsite("https://www.amazon.de/");
 	//Checking not currently logged in
 	assertNotLoggedIn();
 	//Clicking Navigation Login Button
@@ -109,7 +109,7 @@ System.setProperty(key, value);
 	//Click and Enter Email
 	clickAndEnterEmail();
 	//Click and Enter Password
-	clickAndEnterPassword();
+	clickAndEnterPassword("qualityassurance123");
 	//Click Submit Button
 	clickSubmit();
 	//Wait until Login happened
@@ -117,14 +117,17 @@ System.setProperty(key, value);
 	//Check that you are logged in
 	assertLoggedIn();
  }
-*/
+
 
 
  
  @Test(priority = 0)
  public void loginInvalidPassword() throws Exception {
- 	//Go to Amazon Website
-	goToAmazonWebsite();
+ 	
+	 //Special change for Anna
+	 
+	 //Go to Amazon Website
+	goToAmazonWebsite("https://www.amazon.de/");
 	//Check that you are not logged in
 	assertNotLoggedIn();
 	//Click Navigation Login Button
@@ -355,9 +358,9 @@ private void assertLoggedIn() {
 		driver.findElement(By.xpath("//*[@id='ap_password']")).sendKeys(wrongPassword);
 		clickSubmit();
 	}
-	private void goToAmazonWebsite() {
+	private void goToAmazonWebsite(String homePage) {
 		//Go to Amazon Website
-		driver.get("https://www.amazon.de/");
+		driver.get(homePage);
 	}
 	
 	

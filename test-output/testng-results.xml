@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2018-05-23T16:22:37Z" name="Default suite" finished-at="2018-05-23T16:22:51Z" duration-ms="13719">
+    <groups>
+    </groups>
+    <test started-at="2018-05-23T16:22:37Z" name="Default test" finished-at="2018-05-23T16:22:51Z" duration-ms="13719">
+      <class name="com.vincent.NobodyKnowsWhichTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.vincent.NobodyKnowsWhichTests@f381794]" started-at="2018-05-23T16:22:37Z" name="setUp" finished-at="2018-05-23T16:22:39Z" duration-ms="1873" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="loginInvalidPassword()[pri:0, instance:com.vincent.NobodyKnowsWhichTests@f381794]" started-at="2018-05-23T16:22:39Z" name="loginInvalidPassword" finished-at="2018-05-23T16:22:50Z" duration-ms="11297" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginInvalidPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.vincent.NobodyKnowsWhichTests@f381794]" started-at="2018-05-23T16:22:50Z" name="tearDown" finished-at="2018-05-23T16:22:51Z" duration-ms="534" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.vincent.NobodyKnowsWhichTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

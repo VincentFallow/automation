@@ -26,10 +26,11 @@ public class NobodyKnowsWhichTests {
  @BeforeClass(alwaysRun = true)
  public void setUp() throws Exception {
    String key="webdriver.gecko.driver";
-String value="/Users/vincent.brach/Documents/geckodriver";
-System.setProperty(key, value);
+   String userDir = System.getProperty("user.dir");
+   System.out.println(userDir);
+   String value=userDir + "/Tools/geckodriver";
+   System.setProperty(key, value);
    driver = new FirefoxDriver();
-   baseUrl = "https://www.katalon.com/";
    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
  }
 
@@ -94,53 +95,35 @@ System.setProperty(key, value);
   Thread.sleep(5000);
  }
  */
- /*
-//Login
- */
- @Test(priority = 1)
+ 
+//Login cases
+ 
+ @Test
    public void loginValidCredentials() throws Exception {
-	 goToAmazonWebsite("https://www.amazon.de/");
-	//Checking not currently logged in
+	goToAmazonWebsite("https://www.amazon.de/");
 	assertNotLoggedIn();
-	//Clicking Navigation Login Button
 	clickNavigationButton();
-	//Waiting for Login Page to load
 	waitLoginPageLoad();
-	//Click and Enter Email
-	clickAndEnterEmail();
-	//Click and Enter Password
-	clickAndEnterPassword("qualityassurance123");
-	//Click Submit Button
+	clickAndEnterEmailAndPasswordCredentials("qa.vincent+testing@numberfour.eu", "qualityassurance123");
 	clickSubmit();
-	//Wait until Login happened
 	waitUntilLoggedIn();
-	//Check that you are logged in
 	assertLoggedIn();
  }
 
-
+ 
 
  
- @Test(priority = 0)
- public void loginInvalidPassword() throws Exception {
- 	
-	 //Special change for Anna
+ @Test
+ public void loginInvalidPassword() throws Exception {	 
 	 
-	 //Go to Amazon Website
 	goToAmazonWebsite("https://www.amazon.de/");
-	//Check that you are not logged in
 	assertNotLoggedIn();
-	//Click Navigation Login Button
 	clickNavigationButton();
-	//Wait for page to load
 	waitLoginPageLoad();
-	//Click and enter email
-	clickAndEnterEmail();
-	//Click and enter WRONG password
-	clickAndEnterWrongPassword("WRONGPASSWORD");
-	//Wait until password error page loads
+	clickAndEnterEmailAndPasswordCredentials("qa.vincent+testing@numberfour.eu", "WRONGPASSWORD");
+	//TODO 	//Wait until password error page loads
 	waitUntilPasswordErrorPageLoads();
-	//Check that you are on password error page
+	//TODO //Check that you are on password error page
 	assertPasswordErrorPage();
 }
 
@@ -300,6 +283,7 @@ private void waitUntilPasswordErrorPageLoads() {
 
 
 private void assertLoggedIn() {
+	//Check that you are logged in
 		String accountCreated = driver.findElement(By.xpath("//span[@class='nav-shortened-name']")).getText();
 		Assert.assertEquals(accountCreated, "QualityAssuranceMan"); 
 		if (driver.findElement(By.xpath("//span[@class='nav-shortened-name']")).getText().equals("QualityAssuranceMan"))
@@ -309,43 +293,46 @@ private void assertLoggedIn() {
 
 
 	private void waitUntilLoggedIn() {
+		//Wait until Login happened
 		WebDriverWait wait1 = new WebDriverWait(driver, 5);
 		wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='nav-shortened-name']")));
 	}
 
 
 	private void clickSubmit() {
+		//Click Submit on Login form
 		driver.findElement(By.xpath("//input[@id='signInSubmit']")).click();
 	}
 
 
-	private void clickAndEnterPassword(String correctPassword) {
-		driver.findElement(By.xpath("//*[@id='ap_password']")).click();
-		//String password = ;
-		driver.findElement(By.xpath("//*[@id='ap_password']")).sendKeys(correctPassword);
-	}
+	
 
-
-	private void clickAndEnterEmail() {
+	private void clickAndEnterEmailAndPasswordCredentials(String email, String password) {
+		//Click and enter email
 		driver.findElement(By.xpath("//*[@id='ap_email']")).click();
-		String email = "qa.vincent+testing@numberfour.eu";
 		driver.findElement(By.xpath("//*[@id='ap_email']")).sendKeys(email);
 		driver.findElement(By.xpath("//*[@id='ap_email']")).submit();
+		//Click and Enter Password
+		driver.findElement(By.xpath("//*[@id='ap_password']")).click();
+		driver.findElement(By.xpath("//*[@id='ap_password']")).sendKeys(password);
 	}
 
 
 	private void waitLoginPageLoad() {
+		//Waiting for Login Page to load
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='ap_email']")));
 	}
 
 
 	private void clickNavigationButton() {
+		//Clicking Navigation Login Button
 		driver.findElement(By.xpath("//*[@id='nav-link-yourAccount']")).click();
 	}
 
 
 	private void assertNotLoggedIn() {
+		//Checking not currently logged in
 		String halloAnmelden = driver.findElement(By.xpath("//div/a/span[@class='nav-line-1']")).getText();
 		Assert.assertEquals(halloAnmelden, "Hallo! Anmelden"); 
 		if (driver.findElement(By.xpath("//div/a/span[@class='nav-line-1']")).getText().equals("Hallo! Anmelden"))

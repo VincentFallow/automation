@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.vincent.NobodyKnowsWhichTests">
+      <class name="com.vincent.LoginTests">
         <methods>
           <include name="setUp"/>
+          <include name="loginInvalidEmailAndPassword"/>
           <include name="tearDown"/>
-          <include name="loginValidCredentials"/>
-          <include name="loginInvalidPassword"/>
+          <include name="loginInvalidEmail"/>
         </methods>
-      </class> <!-- com.vincent.NobodyKnowsWhichTests -->
+      </class> <!-- com.vincent.LoginTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

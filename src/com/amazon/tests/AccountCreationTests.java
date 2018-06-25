@@ -12,9 +12,9 @@ public class AccountCreationTests extends TestBase{
 	
 	@Test
 	 public void registerAccount() throws Exception {
-	   applicationManager.goToAmazonWebsite("https://www.amazon.de/");
-	   applicationManager.assertNotLoggedIn();
-	   applicationManager.goToYourAccount();
+	   applicationManager.navigationHelper.goToAmazonWebsite("https://www.amazon.de/");
+	   applicationManager.loginHelper.assertNotLoggedIn();
+	   applicationManager.navigationHelper.goToYourAccount();
 	   goToCreateAccount();
 	   clickAndInsertName();
 	   clickAndInsertEmail();
@@ -28,54 +28,54 @@ public class AccountCreationTests extends TestBase{
 	
 	private void clickAndInsertPassword() {
 		//Clicks and inserts the password field
-		driver.findElement(By.xpath("//*[@id='ap_password']")).click();
-		   driver.findElement(By.xpath("//*[@id='ap_password']")).sendKeys("qualityassurance123");
+		applicationManager.driver.findElement(By.xpath("//*[@id='ap_password']")).click();
+		   applicationManager.driver.findElement(By.xpath("//*[@id='ap_password']")).sendKeys("qualityassurance123");
 	}
 
 	private void clickAndInsertEmail() {
 		//Clicks and inserts the email field
-		driver.findElement(By.xpath("//*[@id='ap_email']")).click();
-		   driver.findElement(By.xpath("//*[@id='ap_email']")).sendKeys("qa.vincent+testing@numberfour.eu");
+		applicationManager.driver.findElement(By.xpath("//*[@id='ap_email']")).click();
+		   applicationManager.driver.findElement(By.xpath("//*[@id='ap_email']")).sendKeys("qa.vincent+testing@numberfour.eu");
 	}
 
 	private void clickAndInsertName() {
 		//Clicks and inserts the name field
-		driver.findElement(By.xpath("//*[@id='ap_customer_name']")).click();
-		   driver.findElement(By.xpath("//*[@id='ap_customer_name']")).sendKeys("QualityAssuranceMan");
+		applicationManager.driver.findElement(By.xpath("//*[@id='ap_customer_name']")).click();
+		   applicationManager.driver.findElement(By.xpath("//*[@id='ap_customer_name']")).sendKeys("QualityAssuranceMan");
 	}
 	
 	private void goToConfirmAccountRegistration() {
 		//Click the "Continue" button in account registration
-		driver.findElement(By.xpath("//*[@id='continue']")).click();
+		applicationManager.driver.findElement(By.xpath("//*[@id='continue']")).click();
 	}
 
 	private void clickAndInsertPasswordCheck() {
 		//Clicks and inserts the password check field
-		driver.findElement(By.xpath("//*[@id='ap_password_check']")).click();
-		   driver.findElement(By.xpath("//*[@id='ap_password_check']")).sendKeys("qualityassurance123");
+		applicationManager.driver.findElement(By.xpath("//*[@id='ap_password_check']")).click();
+		   applicationManager.driver.findElement(By.xpath("//*[@id='ap_password_check']")).sendKeys("qualityassurance123");
 	}
 	
 	private void assertRegisteredAndLoggedIn() {
 		//Check that account is registered and logged in
-		   String accountCreated = driver.findElement(By.xpath("//span[@class='nav-shortened-name']")).getText();
+		   String accountCreated = applicationManager.driver.findElement(By.xpath("//span[@class='nav-shortened-name']")).getText();
 		   Assert.assertEquals(accountCreated, "QualityAssuranceMan"); 
-		   if (driver.findElement(By.xpath("//span[@class='nav-shortened-name']")).getText().equals("QualityAssuranceMan"))
+		   if (applicationManager.driver.findElement(By.xpath("//span[@class='nav-shortened-name']")).getText().equals("QualityAssuranceMan"))
 			   System.out.println("Account: Logged In");
-		   else System.out.println(driver.findElement(By.xpath("//span[@class='nav-shortened-name']")).getText());
+		   else System.out.println(applicationManager.driver.findElement(By.xpath("//span[@class='nav-shortened-name']")).getText());
 	}
 	
 	private void mouseoverAndClickOnLogoutButton() {
 		//Hover over the navigation menu and click logout button
-		WebElement web_Element_To_Be_Hovered = driver.findElement(By.xpath("//div/a/span[@class='nav-line-1']"));
-		Actions builder = new Actions(driver);
+		WebElement web_Element_To_Be_Hovered = applicationManager.driver.findElement(By.xpath("//div/a/span[@class='nav-line-1']"));
+		Actions builder = new Actions(applicationManager.driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).build().perform();
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(applicationManager.driver, 5);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='nav-item-signout-sa']")));
-		driver.findElement(By.xpath("//*[@id='nav-item-signout-sa']")).click();
+		applicationManager.driver.findElement(By.xpath("//*[@id='nav-item-signout-sa']")).click();
 	}
 	
 	private void goToCreateAccount() {
 		//Clicks on the "Create Account" button
-		driver.findElement(By.xpath("//*[@id='createAccountSubmit']")).click();
+		applicationManager.driver.findElement(By.xpath("//*[@id='createAccountSubmit']")).click();
 	}
 }

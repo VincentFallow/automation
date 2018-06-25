@@ -1,47 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2018-06-01T12:06:32Z" name="Default suite" finished-at="2018-06-01T12:07:00Z" duration-ms="27927">
+  <suite started-at="2018-06-25T19:58:15Z" name="Default suite" finished-at="2018-06-25T19:58:44Z" duration-ms="28995">
     <groups>
     </groups>
-    <test started-at="2018-06-01T12:06:32Z" name="Default test" finished-at="2018-06-01T12:07:00Z" duration-ms="27927">
-      <class name="com.vincent.AccountCreationTests">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.vincent.AccountCreationTests@44a7bfbc]" started-at="2018-06-01T12:06:32Z" name="setUp" finished-at="2018-06-01T12:06:34Z" duration-ms="2091" status="PASS">
+    <test started-at="2018-06-25T19:58:15Z" name="Default test" finished-at="2018-06-25T19:58:44Z" duration-ms="28995">
+      <class name="com.amazon.tests.AccountCreationTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.amazon.tests.AccountCreationTests@56276db8]" started-at="2018-06-25T19:58:15Z" name="setUp" finished-at="2018-06-25T19:58:16Z" duration-ms="1543" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="registerAccount()[pri:0, instance:com.vincent.AccountCreationTests@44a7bfbc]" started-at="2018-06-01T12:06:34Z" name="registerAccount" finished-at="2018-06-01T12:06:47Z" duration-ms="12950" status="PASS">
+        <test-method signature="registerAccount()[pri:0, instance:com.amazon.tests.AccountCreationTests@56276db8]" started-at="2018-06-25T19:58:16Z" name="registerAccount" finished-at="2018-06-25T19:58:30Z" duration-ms="13654" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id='nav-item-signout-sa'] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'Vincents-MacBook.local', ip: '2a02:8108:4a3f:e248:418a:d837:200d:eb84%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 60.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 977, moz:profile: /var/folders/9h/20rs2r_j19d..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: MAC, platformName: MAC, platformVersion: 17.4.0, rotatable: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 841710d5-5e6e-b34a-85de-813620457ecc]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id='nav-item-signout-sa'] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '3.11.0', revision: 'e59cfb3', time: '2018-03-11T20:26:55.152Z'
+System info: host: 'Vincents-MacBook.local', ip: '2a02:8108:4a3f:e248:418a:d837:200d:eb84%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 60.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 977, moz:profile: /var/folders/9h/20rs2r_j19d..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: MAC, platformName: MAC, platformVersion: 17.4.0, rotatable: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 841710d5-5e6e-b34a-85de-813620457ecc
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+at com.amazon.tests.AccountCreationTests.mouseoverAndClickOnLogoutButton(AccountCreationTests.java:73)
+at com.amazon.tests.AccountCreationTests.registerAccount(AccountCreationTests.java:25)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- registerAccount -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.vincent.AccountCreationTests@44a7bfbc]" started-at="2018-06-01T12:06:47Z" name="tearDown" finished-at="2018-06-01T12:06:47Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.amazon.tests.AccountCreationTests@56276db8]" started-at="2018-06-25T19:58:30Z" name="tearDown" finished-at="2018-06-25T19:58:30Z" duration-ms="539" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.vincent.AccountCreationTests -->
-      <class name="com.vincent.LoginTests">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.vincent.LoginTests@4ef37659]" started-at="2018-06-01T12:06:47Z" name="setUp" finished-at="2018-06-01T12:06:49Z" duration-ms="1642" status="PASS">
+      </class> <!-- com.amazon.tests.AccountCreationTests -->
+      <class name="com.amazon.tests.LoginTests">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.amazon.tests.LoginTests@51e8e6e6]" started-at="2018-06-25T19:58:30Z" name="setUp" finished-at="2018-06-25T19:58:32Z" duration-ms="1551" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="loginInvalidEmail()[pri:0, instance:com.vincent.LoginTests@4ef37659]" started-at="2018-06-01T12:06:49Z" name="loginInvalidEmail" finished-at="2018-06-01T12:06:53Z" duration-ms="4257" status="PASS">
+        <test-method signature="loginInvalidEmail()[pri:0, instance:com.amazon.tests.LoginTests@51e8e6e6]" started-at="2018-06-25T19:58:32Z" name="loginInvalidEmail" finished-at="2018-06-25T19:58:36Z" duration-ms="3692" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginInvalidEmail -->
-        <test-method signature="loginInvalidPassword()[pri:0, instance:com.vincent.LoginTests@4ef37659]" started-at="2018-06-01T12:06:53Z" name="loginInvalidPassword" finished-at="2018-06-01T12:06:56Z" duration-ms="3063" status="PASS">
+        <test-method signature="loginInvalidPassword()[pri:0, instance:com.amazon.tests.LoginTests@51e8e6e6]" started-at="2018-06-25T19:58:36Z" name="loginInvalidPassword" finished-at="2018-06-25T19:58:39Z" duration-ms="3005" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginInvalidPassword -->
-        <test-method signature="loginValidCredentials()[pri:0, instance:com.vincent.LoginTests@4ef37659]" started-at="2018-06-01T12:06:56Z" name="loginValidCredentials" finished-at="2018-06-01T12:07:00Z" duration-ms="3906" status="PASS">
+        <test-method signature="loginValidCredentials()[pri:0, instance:com.amazon.tests.LoginTests@51e8e6e6]" started-at="2018-06-25T19:58:39Z" name="loginValidCredentials" finished-at="2018-06-25T19:58:43Z" duration-ms="4177" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginValidCredentials -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.vincent.LoginTests@4ef37659]" started-at="2018-06-01T12:07:00Z" name="tearDown" finished-at="2018-06-01T12:07:00Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.amazon.tests.LoginTests@51e8e6e6]" started-at="2018-06-25T19:58:43Z" name="tearDown" finished-at="2018-06-25T19:58:44Z" duration-ms="811" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.vincent.LoginTests -->
+      </class> <!-- com.amazon.tests.LoginTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

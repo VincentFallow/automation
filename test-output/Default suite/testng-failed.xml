@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.vincent.LoginTests">
+      <class name="com.amazon.tests.AccountCreationTests">
         <methods>
+          <include name="registerAccount"/>
           <include name="setUp"/>
-          <include name="loginInvalidEmailAndPassword"/>
           <include name="tearDown"/>
-          <include name="loginInvalidEmail"/>
         </methods>
-      </class> <!-- com.vincent.LoginTests -->
+      </class> <!-- com.amazon.tests.AccountCreationTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

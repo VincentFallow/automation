@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.amazon.tests.AccountCreationTests" class="method navigator-link" hash-for-method="registerAccount">registerAccount</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,22 +116,17 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.vincent.LoginTests" class="method navigator-link" hash-for-method="loginInvalidEmail">loginInvalidEmail</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.amazon.tests.LoginTests" class="method navigator-link" hash-for-method="loginInvalidEmail">loginInvalidEmail</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.vincent.LoginTests" class="method navigator-link" hash-for-method="loginInvalidPassword">loginInvalidPassword</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.amazon.tests.LoginTests" class="method navigator-link" hash-for-method="loginInvalidPassword">loginInvalidPassword</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.vincent.LoginTests" class="method navigator-link" hash-for-method="loginValidCredentials">loginValidCredentials</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.vincent.AccountCreationTests" class="method navigator-link" hash-for-method="registerAccount">registerAccount</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.amazon.tests.LoginTests" class="method navigator-link" hash-for-method="loginValidCredentials">loginValidCredentials</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -132,10 +141,62 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.amazon.tests.AccountCreationTests</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="registerAccount">
+                  </a> <!-- registerAccount -->
+                  <span class="method-name">registerAccount</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id=&apos;nav-item-signout-sa&apos;] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.11.0&apos;, revision: &apos;e59cfb3&apos;, time: &apos;2018-03-11T20:26:55.152Z&apos;
+System info: host: &apos;Vincents-MacBook.local&apos;, ip: &apos;2a02:8108:4a3f:e248:418a:d837:200d:eb84%en0&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.13.3&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 60.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 977, moz:profile: /var/folders/9h/20rs2r_j19d..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: MAC, platformName: MAC, platformVersion: 17.4.0, rotatable: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 841710d5-5e6e-b34a-85de-813620457ecc
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:81)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:271)
+	at com.amazon.tests.AccountCreationTests.mouseoverAndClickOnLogoutButton(AccountCreationTests.java:73)
+	at com.amazon.tests.AccountCreationTests.registerAccount(AccountCreationTests.java:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.vincent.LoginTests</span>
+              <span class="class-name">com.amazon.tests.LoginTests</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -161,25 +222,10 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-passed -->
-          <div class="suite-Default_suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.vincent.AccountCreationTests</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="registerAccount">
-                  </a> <!-- registerAccount -->
-                  <span class="method-name">registerAccount</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/9h/20rs2r_j19d3k8yg_636x89h0000gp/T/testng-eclipse-1112815580/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/9h/20rs2r_j19d3k8yg_636x89h0000gp/T/testng-eclipse--705160248/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -188,10 +234,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.vincent.LoginCredentialsObject&quot;/&gt;
-      &lt;class name=&quot;com.vincent.AccountCreationTests&quot;/&gt;
-      &lt;class name=&quot;com.vincent.TestBase&quot;/&gt;
-      &lt;class name=&quot;com.vincent.LoginTests&quot;/&gt;
+      &lt;class name=&quot;com.amazon.tests.LoginCredentialsObject&quot;/&gt;
+      &lt;class name=&quot;com.amazon.tests.PurchaseTests&quot;/&gt;
+      &lt;class name=&quot;com.amazon.tests.AccountCreationTests&quot;/&gt;
+      &lt;class name=&quot;com.amazon.tests.TestBase&quot;/&gt;
+      &lt;class name=&quot;com.amazon.tests.LoginTests&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -205,7 +252,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Default test (4 classes)</span>
+                <span class="test-name">Default test (5 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -234,20 +281,20 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'registerAccount')
-data.setCell(0, 2, 'com.vincent.AccountCreationTests')
-data.setCell(0, 3, 12950);
+data.setCell(0, 2, 'com.amazon.tests.AccountCreationTests')
+data.setCell(0, 3, 13654);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'loginInvalidEmail')
-data.setCell(1, 2, 'com.vincent.LoginTests')
-data.setCell(1, 3, 4257);
+data.setCell(1, 1, 'loginValidCredentials')
+data.setCell(1, 2, 'com.amazon.tests.LoginTests')
+data.setCell(1, 3, 4177);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'loginValidCredentials')
-data.setCell(2, 2, 'com.vincent.LoginTests')
-data.setCell(2, 3, 3906);
+data.setCell(2, 1, 'loginInvalidEmail')
+data.setCell(2, 2, 'com.amazon.tests.LoginTests')
+data.setCell(2, 3, 3692);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'loginInvalidPassword')
-data.setCell(3, 2, 'com.vincent.LoginTests')
-data.setCell(3, 3, 3063);
+data.setCell(3, 2, 'com.amazon.tests.LoginTests')
+data.setCell(3, 3, 3005);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -278,41 +325,43 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.vincent.AccountCreationTests</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.amazon.tests.AccountCreationTests</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">registerAccount</span>
-                <span class="method-start">2095 ms</span>
+                <span class="method-start">1548 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">15047 ms</span>
+                <span class="method-start">15206 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
-              <div class="chronological-class-name">com.vincent.LoginTests</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.amazon.tests.LoginTests</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">15047 ms</span>
+                <span class="method-start">15745 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">loginInvalidEmail</span>
-                <span class="method-start">16689 ms</span>
+                <span class="method-start">17296 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">loginInvalidPassword</span>
-                <span class="method-start">20948 ms</span>
+                <span class="method-start">20989 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">loginValidCredentials</span>
-                <span class="method-start">24012 ms</span>
+                <span class="method-start">23995 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">27920 ms</span>
+                <span class="method-start">28174 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
